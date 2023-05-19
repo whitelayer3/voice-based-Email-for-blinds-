@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>main page</title>
+  <!-- <link href="style.css" rel="stylesheet" /> -->
+  
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    .button-container button {
+      margin: 20px;
+      padding: 15px 60px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    p {
+      color: rgb(231, 231, 242); /* Text color */
+    }
+  </style>
+    </style>
+</head>
+<body style="background-color: rgb(57, 3, 23);">
+
+    
+   
+  <div class="button-container">
+    <p><b>Read one by one message in queue order</b></p>
+    <a href="#"><button>Start Reading</button></a><br>
+    <br><p><b>Find and read the mail by username and subject</b></p>
+    <a href="search_mail.html"><button>Find/Search</button></a><br>
+   
+    <!-- <button>Button 4</button><br>
+    <button>Button 5</button> -->
+    <div class="back-button-container">
+        <p><b>Back to previous page</b></p>
+        <button class="back-button" onclick="goBack()">Back</button><br>
+      </div>
+  </div>
+  <script>
+    function goBack() {
+      window.history.back(); 
+    }
+  </script> 
+  
+
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+  </script> -->
+</body>
+</html>

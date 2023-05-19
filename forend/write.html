@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voice-to-Text Mail</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    
+    }
+    
+    #form-container {
+      text-align: center;
+      margin-top: 80px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: white;
+
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 300px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    
+    textarea {
+      height: 200px;
+    }
+    
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    .button_container_send {
+      margin: 20px;
+      padding: 2px 5px;
+      background-color: #d80e47;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    header {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 5px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+    }
+  </style>
+  <script>
+    // JavaScript code for voice-to-text conversion
+    function startDictation(fieldId) {
+      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+        var recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US';
+        recognition.start();
+        recognition.onresult = function(e) {
+          document.getElementById(fieldId).value = e.results[0][0].transcript;
+          recognition.stop();
+        };
+        recognition.onerror = function(e) {
+          recognition.stop();
+        };
+      }
+    }
+  </script>
+</head>
+<body style="background-color: rgb(57, 3, 23);">
+    <header>
+        <h3>Voice-based Email</h3>
+      </header>
+  <div id="form-container">
+    <form>
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject">
+    <button type="button" onclick="startDictation('subject')">Speak</button><br><br>
+
+    <label for="receiver">Receiver Mail:</label>
+    <input type="email" id="receiver" name="receiver">
+    <button type="button" onclick="startDictation('receiver')">Speak</button><br><br>
+
+    <label for="body">Body of Mail:</label>
+    <textarea id="body" name="body"></textarea>
+    <button type="button" onclick="startDictation('body')">Speak</button><br><br>
+    
+    <div class="button_container_send">
+        <button type="button" onclick="sendMail()">Send Mail</button>
+      </div>
+    <!-- <button type="button" onclick="sendMail()">Send Mail</button> -->
+  </form>
+  <div class="button_container_send">
+    <button class="back-button" onclick="goBack()">Back</button><br>
+  </div>
+  </div>
+  
+  <script>
+    function goBack() {
+      window.history.back(); 
+    }
+  </script>
+</body>
+</html>
