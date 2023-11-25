@@ -14,16 +14,16 @@ load of remembering keyboard shortcuts and location of
 keys. The user needs to follow the instructions given by the
 system
 
-#Methodology
+# Methodology
 ALGORITHMS
 ➔ STT(SPEECH TO TEXT): Here speech is converted to text.
 ➔ TTS(TEXT TO SPEECH): Here text is converted to speech.
 ➔ IVR(INTERACTIVE VOICE RESPONSE): It is an advance technology describes the interaction
 between the user and the system.
-#LIBRARIES USED
+# LIBRARIES USED
 ➔ Opencv
 ➔ gTTs
 ➔ Speech Recognition
 
-#Contact us 
+# Contact us 
 projectgroup5cem@gmail.com
